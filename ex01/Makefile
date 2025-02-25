@@ -1,8 +1,28 @@
-NAME = megaphone
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/25 03:11:14 by obouayed          #+#    #+#              #
+#    Updated: 2025/02/25 03:12:32 by obouayed         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = phonebook
 
 SRCDIR = src
 OBJDIR = obj
-SRCS = $(SRCDIR)/megaphone.cpp
+INCDIR = includes
+
+INCLUDES = $(INCDIR)/PhoneBook.hpp \
+		$(INCDIR)/Contact.hpp
+
+SRCS = $(SRCDIR)/PhoneBook.cpp \
+		$(SRCDIR)/Contact.cpp \
+		$(SRCDIR)/main.cpp
+
 OBJS = $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 CXX = c++
@@ -10,8 +30,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@echo "🚀 Compiling Megaphone Project..."
+$(NAME): $(OBJS) $(INCLUDES)
+	@echo "🚀 Compiling PhoneBook Project..."
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "✅ Compilation successful!"
 
