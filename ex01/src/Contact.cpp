@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:20:21 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 03:00:17 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:27:40 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,93 +22,93 @@ Contact::~Contact(void)
 
 std::string Contact::getFirstName(void) const
 {
-    return this->_firstName;
+	return (this->_firstName);
 }
 
 std::string Contact::getLastName(void) const
 {
-    return this->_lastName;
+	return (this->_lastName);
 }
 
 std::string Contact::getNickName(void) const
 {
-    return this->_nickName;
+	return (this->_nickName);
 }
 
 std::string Contact::getPhoneNumber(void) const
 {
-    return this->_phoneNumber;
+	return (this->_phoneNumber);
 }
 
 std::string Contact::getDarkestSecret(void) const
 {
-    return this->_darkestSecret;
+	return (this->_darkestSecret);
 }
 
 unsigned int Contact::getIndex(void) const
 {
-    return this->_index;
+	return (this->_index);
 }
 
 void Contact::setFirstName(std::string firstName)
 {
-    this->_firstName = firstName;
+	this->_firstName = firstName;
 }
 
 void Contact::setLastName(std::string lastName)
 {
-    this->_lastName = lastName;
+	this->_lastName = lastName;
 }
 
 void Contact::setNickName(std::string nickName)
 {
-    this->_nickName = nickName;
+	this->_nickName = nickName;
 }
 
 void Contact::setPhoneNumber(std::string phoneNumber)
 {
-    this->_phoneNumber = phoneNumber;
+	this->_phoneNumber = phoneNumber;
 }
 
 void Contact::setDarkestSecret(std::string darkestSecret)
 {
-    this->_darkestSecret = darkestSecret;
+	this->_darkestSecret = darkestSecret;
 }
 
 void Contact::setIndex(unsigned int index)
 {
-    this->_index = index;
+	this->_index = index;
 }
 
 // Display methods
 void Contact::displayShort(void) const
 {
-    std::cout << "|" << std::setw(10) << this->_index;
-    std::cout << "|" << std::setw(10) << truncateString(this->_firstName);
-    std::cout << "|" << std::setw(10) << truncateString(this->_lastName);
-    std::cout << "|" << std::setw(10) << truncateString(this->_nickName);
-    std::cout << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << this->_index;
+	std::cout << "|" << std::setw(10) << truncateString(this->_firstName);
+	std::cout << "|" << std::setw(10) << truncateString(this->_lastName);
+	std::cout << "|" << std::setw(10) << truncateString(this->_nickName);
+	std::cout << "|" << std::endl;
 }
 
 void Contact::displayFull(void) const
 {
-    std::cout << "Index: " << this->_index << std::endl;
-    std::cout << "First name: " << this->_firstName << std::endl;
-    std::cout << "Last name: " << this->_lastName << std::endl;
-    std::cout << "Nickname: " << this->_nickName << std::endl;
-    std::cout << "Phone number: " << this->_phoneNumber << std::endl;
-    std::cout << "Darkest secret: " << this->_darkestSecret << std::endl;
+	std::cout << "Index: " << this->_index << std::endl;
+	std::cout << "First name: " << this->_firstName << std::endl;
+	std::cout << "Last name: " << this->_lastName << std::endl;
+	std::cout << "Nickname: " << this->_nickName << std::endl;
+	std::cout << "Phone number: " << this->_phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << this->_darkestSecret << std::endl;
 }
 
 // Utility method
 bool Contact::isEmpty(void) const
 {
-    return (this->_firstName.empty());
+	return (this->_firstName.empty());
 }
 
 std::string Contact::truncateString(std::string str) const
 {
-    if (str.length() > 10)
-        return (str.substr(0, 9) + ".");
-    return str;
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	return (str);
 }
