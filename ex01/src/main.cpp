@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 03:00:35 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 03:38:58 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/26 23:58:58 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ int main(void)
     std::string command;
 
     std::cout << "Welcome to My Awesome PhoneBook!" << std::endl;
-    std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
+    std::cout << "Available commands: " << GREEN << "ADD" << RESET << ", " 
+              << ORANGE << "SEARCH" << RESET << ", " 
+              << PURPLE << "EXIT" << RESET << std::endl;
     while (command != "EXIT")
     {
         std::cout << ">> ";
         std::getline(std::cin, command);
-        if (std::cin.eof() || std::cin.fail()) 
+        if (std::cin.eof()) 
         {
-            std::cout << "\nGoodbye!" << std::endl;
+            std::cout << PURPLE << "EOF detected. Exiting program." << RESET << "\nGoodbye!" << std::endl;
             break;
         }
         if (command == "ADD")
@@ -35,7 +37,10 @@ int main(void)
         else if (command == "EXIT")
             std::cout << "Goodbye!" << std::endl;
         else
-            std::cout << "Invalid command. Available commands: ADD, SEARCH, EXIT" << std::endl;
+            std::cout << RED << "Invalid command." << RESET << " Available commands: " 
+                      << GREEN << "ADD" << RESET << ", " 
+                      << ORANGE << "SEARCH" << RESET << ", " 
+                      << PURPLE << "EXIT" << RESET << std::endl;
     }
     return (0);
 }

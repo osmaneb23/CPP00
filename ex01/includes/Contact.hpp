@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:37:04 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 03:40:22 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/26 23:57:16 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+
+// Color definitions
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define PURPLE  "\033[35m"
+#define CYAN    "\033[36m"
+#define ORANGE  "\033[38;5;208m"
+#define BOLD    "\033[1m"
 
 class Contact
 {

@@ -6,13 +6,14 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:19:58 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 03:47:08 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/26 23:27:58 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 #include <cstdlib> // For atoi
 #include <limits>
+#include <cstdio>
 
 PhoneBook::PhoneBook(void) : _count(0), _oldestIndex(0)
 {
@@ -22,35 +23,64 @@ PhoneBook::~PhoneBook(void)
 {
 }
 
+std::string PhoneBook::getInput(std::string prompt) const
+{
+    std::string input;
+
+    do
+    {
+        std::cout << prompt;
+        std::getline(std::cin, input);
+
+        if (std::cin.eof() || std::cin.fail())
+        {
+            std::cin.clear(); // Clear the EOF state
+            clearerr(stdin); // Reset the C input stream
+            return ("");
+        }
+    } while (input.empty());
+    return (input);
+}
+
 void PhoneBook::addContact(void)
 {
 	Contact	newContact;
 
 	std::string input;
-	do
+	input = getInput("Enter first name: ");
+	if (input.empty())
 	{
-		input = getInput("Enter first name: ");
-	} while (input.empty());
+		std::cout << "Contact addition cancelled." << std::endl;
+		return ;
+	}
 	newContact.setFirstName(input);
-	do
+	input = getInput("Enter last name: ");
+	if (input.empty())
 	{
-		input = getInput("Enter last name: ");
-	} while (input.empty());
+		std::cout << "Contact addition cancelled." << std::endl;
+		return ;
+	}
 	newContact.setLastName(input);
-	do
+	input = getInput("Enter nickname: ");
+	if (input.empty())
 	{
-		input = getInput("Enter nickname: ");
-	} while (input.empty());
+		std::cout << "Contact addition cancelled." << std::endl;
+		return ;
+	}
 	newContact.setNickName(input);
-	do
+	input = getInput("Enter phone number: ");
+	if (input.empty())
 	{
-		input = getInput("Enter phone number: ");
-	} while (input.empty());
+		std::cout << "Contact addition cancelled." << std::endl;
+		return ;
+	}
 	newContact.setPhoneNumber(input);
-	do
+	input = getInput("Enter darkest secret: ");
+	if (input.empty())
 	{
-		input = getInput("Enter darkest secret: ");
-	} while (input.empty());
+		std::cout << "Contact addition cancelled." << std::endl;
+		return ;
+	}
 	newContact.setDarkestSecret(input);
 	// Set contact index and add to phonebook
 	if (_count < _maxcontacts)
@@ -137,22 +167,4 @@ void PhoneBook::displayPhoneBookHeader(void) const
 	std::cout << "|" << std::setw(10) << "Nickname";
 	std::cout << "|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-}
-
-std::string PhoneBook::getInput(std::string prompt) const
-{
-	std::string input;
-
-	std::cout << prompt;
-	std::getline(std::cin, input);
-
-	// Check for EOF or error
-	if (std::cin.eof() || std::cin.fail())
-	{
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		return ("");
-	}
-
-	return (input);
 }

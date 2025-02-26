@@ -6,11 +6,9 @@
 #    By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 03:38:04 by obouayed          #+#    #+#              #
-#    Updated: 2025/02/26 22:46:32 by obouayed         ###   ########.fr        #
+#    Updated: 2025/02/26 23:51:32 by obouayed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 # Color definitions
 RESET = \033[0m
