@@ -6,7 +6,7 @@
 #    By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 03:11:14 by obouayed          #+#    #+#              #
-#    Updated: 2025/02/27 00:20:59 by obouayed         ###   ########.fr        #
+#    Updated: 2025/02/27 01:17:03 by obouayed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
 	@start_time=$$(date +%s.%N); \
-	echo "$(CYAN)🚀 Compiling PhoneBook Project...$(RESET)"; \
+	echo "$(TEAL)⚙️  Assembling PhoneBook Project...$(RESET)"; \
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME); \
 	end_time=$$(date +%s.%N); \
 	elapsed_secs=$$(echo "$$end_time - $$start_time" | bc); \
@@ -127,42 +127,42 @@ $(NAME): $(OBJS) $(INCLUDES)
 	minutes=$$(echo "$$total_seconds / 60" | bc); \
 	seconds=$$(echo "$$total_seconds % 60" | bc); \
 	if [ $$minutes -gt 0 ]; then \
-		echo "$(GREEN)✅ Compilation successful! (Time: $${minutes}m $${seconds}s $${milliseconds}ms$(RESET))"; \
+		echo "$(BOLD_GREEN)✅ Compilation successful! $(BOLD_WHITE)[Time: $${minutes}m $${seconds}s $${milliseconds}ms]$(RESET)"; \
 	elif [ $$seconds -gt 0 ]; then \
-		echo "$(GREEN)✅ Compilation successful! (Time: $${seconds}s $${milliseconds}ms$(RESET))"; \
+		echo "$(BOLD_GREEN)✅ Compilation successful! $(BOLD_WHITE)[Time: $${seconds}s $${milliseconds}ms]$(RESET)"; \
 	else \
-		echo "$(GREEN)✅ Compilation successful! (Time: $${milliseconds}ms$(RESET))"; \
+		echo "$(BOLD_GREEN)✅ Compilation successful! $(BOLD_WHITE)[Time: $${milliseconds}ms]$(RESET)"; \
 	fi
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
-	@printf "$(BLUE)🎯 Compiling [%d/%d] %s...$(RESET)\n" $(CURRENT_FILE) $(TOTAL_FILES) $<
+	@printf "$(LIGHT_BLUE)🛠️  Compiling [%d/%d] %s...$(RESET)\n" $(CURRENT_FILE) $(TOTAL_FILES) $<
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR):
-	@echo "$(YELLOW)📁 Creating objects directory...$(RESET)"
+	@echo "$(LIGHT_YELLOW)📂 Creating objects directory...$(RESET)"
 	@mkdir -p $(OBJDIR)
 
 # Cleaning rules
 clean:
-	@echo "$(YELLOW)🧹 Cleaning object files...$(RESET)"
+	@echo "$(ORANGE)🧹 Cleaning object files...$(RESET)"
 	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@echo "$(PURPLE)🗑️  Removing executable...$(RESET)"
+	@echo "$(LAVENDER)🗑️  Removing executable...$(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
-	@echo "$(GREEN)♻️  Project rebuilt from scratch!$(RESET)"
-
-# Run the program
-run: $(NAME)
-	@echo "$(CYAN)🚀 Running $(NAME)...$(RESET)"
-	@./$(NAME)
+	@echo "$(LIME)♻️  Project rebuilt from scratch!$(RESET)"
 
 # Compile if necessary and run
-rerun: all
-	@echo "$(CYAN)🚀 Running $(NAME)...$(RESET)"
+run: all
+	@echo "$(BOLD_CYAN)▶️  Running $(NAME)...$(RESET)"
+	@./$(NAME)
+
+# Rebuild from scratch and run
+rerun: re
+	@echo "$(BOLD_CYAN)🔄 Running $(NAME) after rebuild...$(RESET)"
 	@./$(NAME)
 
 # Debug tools
@@ -170,20 +170,16 @@ valgrind: $(NAME)
 	@echo "$(BOLD_RED)🔍 Running Valgrind memory check...$(RESET)"
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
+# Index
 help:
 	@echo "$(BOLD_CYAN)Available targets:$(RESET)"
 	@echo "  $(GREEN)all$(RESET)      - Build the program"
 	@echo "  $(GREEN)clean$(RESET)    - Remove object files"
 	@echo "  $(GREEN)fclean$(RESET)   - Remove object files and executable"
 	@echo "  $(GREEN)re$(RESET)       - Rebuild from scratch"
-	@echo "  $(GREEN)run$(RESET)      - Run the program"
-	@echo "  $(GREEN)rerun$(RESET)    - Compile if needed and run"
+	@echo "  $(GREEN)run$(RESET)      - Compile if needed and run"
+	@echo "  $(GREEN)rerun$(RESET)    - Rebuild from scratch and run"
 	@echo "  $(GREEN)valgrind$(RESET) - Run with memory leak check"
 	@echo "  $(GREEN)help$(RESET)     - Show this help message"
 
 .PHONY: all clean fclean re valgrind help run rerun
-
-# Change colors/emojis
-# add () for time in compilation succesffull 
-# doing the same thing for ex00
-# add a command that will run and re from stratch
