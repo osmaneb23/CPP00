@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:37:04 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 23:57:16 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 04:27:58 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 # include <iostream>
-# include <string>
 # include <iomanip>
 
 // Color definitions
@@ -31,7 +30,7 @@
 class Contact
 {
   private:
-    unsigned int _index;
+    int _index;
     std::string _firstName;
     std::string _lastName;
     std::string _nickName;
