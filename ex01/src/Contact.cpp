@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:20:21 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 18:35:47 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:01:39 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ std::string Contact::getDarkestSecret(void) const
 	return (this->_darkestSecret);
 }
 
-unsigned int Contact::getIndex(void) const
+int Contact::getIndex(void) const
 {
 	return (this->_index);
 }

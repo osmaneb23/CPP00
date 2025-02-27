@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:37:04 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 18:29:58 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:01:03 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class Contact
     std::string getNickName(void) const;
     std::string getPhoneNumber(void) const;
     std::string getDarkestSecret(void) const;
-    unsigned int getIndex(void) const;
+    int         getIndex(void) const;
 
     // Setters
     void setFirstName(std::string firstName);
