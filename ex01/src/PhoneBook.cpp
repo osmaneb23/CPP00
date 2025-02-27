@@ -6,12 +6,11 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:19:58 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 04:28:42 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 04:45:34 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
-#include <cstdio> // clearerr
 
 PhoneBook::PhoneBook(void) : _count(0), _oldestIndex(0)
 {
@@ -32,7 +31,7 @@ std::string PhoneBook::getInput(std::string prompt) const
         if (std::cin.eof())
         {
             std::cin.clear(); // Clear the EOF state
-            clearerr(stdin); // Reset the C input stream
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input (not working)
             return ("");
         }
     } while (input.empty());

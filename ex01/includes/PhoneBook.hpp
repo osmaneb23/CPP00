@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 23:28:17 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 04:27:50 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 04:32:31 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONE_BOOK_HPP
 
 #include <cstdlib> // Atoi
+#include <limits> // std::numeric_limits
 
 # include "Contact.hpp"
 

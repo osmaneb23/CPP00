@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 03:00:35 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 04:12:37 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 04:44:30 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ int main(void)
     displayWelcomeMessage();
     std::cout << availableCommands << std::endl;
     
-    while (command != "EXIT")
+    while (true)
     {
         std::cout << ">> ";
-        std::getline(std::cin, command);
-        if (std::cin.eof()) 
+        if (!std::getline(std::cin, command)) // Check for EOF
         {
+            std::cin.clear(); // Clear EOF state
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard input
             std::cout << PURPLE << "Exiting program.\n" << RESET << goodbyeMessage << std::endl;
             break;
         }
@@ -52,8 +53,11 @@ int main(void)
         else if (command == "SEARCH")
             phoneBook.searchContact();
         else if (command == "EXIT")
+        {
             std::cout << goodbyeMessage << std::endl;
-        else
+            break;
+        }
+        else if (!command.empty())
             std::cout << RED << "Invalid command." << RESET << " " << availableCommands << std::endl;
     }
     return (0);
