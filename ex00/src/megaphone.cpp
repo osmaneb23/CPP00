@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:37:57 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/24 03:37:58 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:33:50 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 			for (int j = 0; av[i][j]; j++)
 				av[i][j] = toupper(av[i][j]);
 			if (av[i + 1])
-				std::cout << av[i] << " ";
+				std::cout << av[i];
 			else
 				std::cout << av[i] << std::endl;
 		}
