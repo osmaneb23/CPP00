@@ -6,15 +6,12 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:37:04 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 04:27:58 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:29:58 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-
-# include <iostream>
-# include <iomanip>
 
 // Color definitions
 #define RESET   "\033[0m"
@@ -26,6 +23,9 @@
 #define CYAN    "\033[36m"
 #define ORANGE  "\033[38;5;208m"
 #define BOLD    "\033[1m"
+
+# include <iostream> // Std::cout, Std::cin
+# include <iomanip> // Setw
 
 class Contact
 {
@@ -61,8 +61,7 @@ class Contact
     void displayShort(void) const;
     void displayFull(void) const;
 
-    // Utility method
-    bool isEmpty(void) const;
+    // Utility methods
     std::string truncateString(std::string str) const;
 };
 

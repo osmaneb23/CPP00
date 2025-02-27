@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:19:58 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/27 04:45:34 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:24:09 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ std::string PhoneBook::getInput(std::string prompt) const
         std::getline(std::cin, input);
         if (std::cin.eof())
         {
-            std::cin.clear(); // Clear the EOF state
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input (not working)
+            // Clear the EOF flag
+            std::cin.clear(); 
+            clearerr(stdin); 
             return ("");
         }
     } while (input.empty());
@@ -164,17 +165,15 @@ void PhoneBook::displayContacts(void) const
 {
     displayPhoneBookHeader();
     for (int i = 0; i < _count; i++)
-    {
         _contacts[i].displayShort();
-    }
 }
 
 void PhoneBook::displayPhoneBookHeader(void) const
 {
-    std::cout << "|" << std::setw(10) << "Index";
-    std::cout << "|" << std::setw(10) << "First Name";
-    std::cout << "|" << std::setw(10) << "Last Name";
-    std::cout << "|" << std::setw(10) << "Nickname";
+    std::cout << "|" << BOLD << std::setw(10) << "Index" << RESET;
+    std::cout << "|" << BOLD << std::setw(10) << "First Name" << RESET;
+    std::cout << "|" << BOLD << std::setw(10) << "Last Name" << RESET;
+    std::cout << "|" << BOLD << std::setw(10) << "Nickname" << RESET;
     std::cout << "|" << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
 }

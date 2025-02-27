@@ -6,7 +6,7 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 01:20:21 by obouayed          #+#    #+#             */
-/*   Updated: 2025/02/26 22:27:40 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:35:47 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,18 +92,13 @@ void Contact::displayShort(void) const
 
 void Contact::displayFull(void) const
 {
-	std::cout << "Index: " << this->_index << std::endl;
-	std::cout << "First name: " << this->_firstName << std::endl;
-	std::cout << "Last name: " << this->_lastName << std::endl;
-	std::cout << "Nickname: " << this->_nickName << std::endl;
-	std::cout << "Phone number: " << this->_phoneNumber << std::endl;
-	std::cout << "Darkest secret: " << this->_darkestSecret << std::endl;
-}
-
-// Utility method
-bool Contact::isEmpty(void) const
-{
-	return (this->_firstName.empty());
+	std::cout << "\n────────────── CONTACT DETAILS ──────────────" << std::endl;
+	std::cout << "Index          : " << this->_index << std::endl;
+	std::cout << "First name     : " << this->_firstName << std::endl;
+	std::cout << "Last name      : " << this->_lastName << std::endl;
+	std::cout << "Nickname       : " << this->_nickName << std::endl;
+	std::cout << "Phone number   : " << this->_phoneNumber << std::endl;
+	std::cout << "Darkest secret : " << this->_darkestSecret << std::endl << std::endl;
 }
 
 std::string Contact::truncateString(std::string str) const
